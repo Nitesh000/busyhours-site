@@ -1,0 +1,81 @@
+.footer {
+  background: var(--on-surface);
+  color: #ccc;
+  padding-top: 60px;
+}
+.footer-inner {
+  display: flex;
+  gap: 64px;
+  flex-wrap: wrap;
+  padding-bottom: 48px;
+}
+.footer-brand {
+  flex: 0 0 220px;
+}
+.footer-logo {
+  margin-bottom: 6px;
+}
+
+.footer-logo img {
+  border-radius: 0.5rem;
+  padding: 0.25rem;
+  background-color: #fff;
+}
+.footer-name {
+  font-size: 20px;
+  font-weight: 800;
+  color: #fff;
+}
+.footer-tagline {
+  font-size: 14px;
+  margin-top: 8px;
+  opacity: 0.6;
+  line-height: 1.5;
+}
+.footer-links {
+  display: flex;
+  gap: 48px;
+  flex-wrap: wrap;
+  flex: 1;
+}
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.footer-col h4 {
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+.footer-col a {
+  font-size: 14px;
+  color: #aaa;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.footer-col a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 20px 24px;
+  text-align: center;
+  font-size: 13px;
+  opacity: 0.5;
+}
+.footer-bottom a {
+  color: inherit;
+}
+@media (max-width: 640px) {
+  .footer-inner {
+    gap: 40px;
+  }
+  .footer-brand {
+    flex: 0 0 100%;
+  }
+}
