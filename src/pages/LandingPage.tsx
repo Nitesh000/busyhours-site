@@ -1,10 +1,20 @@
+import { useEffect, useState } from 'react';
 import Logo from '../components/Logo';
 import GooglePlayBadge from '../components/GooglePlayBadge';
 import './LandingPage.css';
 
 const PLAY_URL = 'https://play.google.com/store/apps/details?id=com.busyhours';
 
-const PRO_PRICE = '$6.99';
+function useLocalizedPrice(): string {
+  const [price, setPrice] = useState('$6.99');
+  useEffect(() => {
+    fetch('/.netlify/functions/price')
+      .then(r => r.json())
+      .then(d => { if (d.price) setPrice(d.price); })
+      .catch(() => {});
+  }, []);
+  return price;
+}
 
 const FEATURES = [
   {
@@ -81,6 +91,7 @@ const STEPS = [
 ];
 
 export default function LandingPage() {
+  const proPrice = useLocalizedPrice();
   return (
     <main>
       {/* ── Hero ──────────────────────────────────────────────────── */}
@@ -291,7 +302,7 @@ export default function LandingPage() {
             <div className="plan plan--pro card">
               <div className="plan-badge">Most Popular</div>
               <p className="plan-tier">Pro</p>
-              <div className="plan-price">{PRO_PRICE}</div>
+              <div className="plan-price">{proPrice}</div>
               <p className="plan-note">One-time · No subscription</p>
               <ul className="plan-list">
                 <li>
